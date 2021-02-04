@@ -9,12 +9,14 @@
 4. [디자인패턴](#디자인패턴)
 5. [Pythonic한 사고](#pythonic한-사고)
 
-
+<!-- 
 <details markdown="1">
 <summary></summary>
 
+<br>
 
 </details>
+-->
 
 ---
 ## 파이썬언어에 대해 깊게 알기
@@ -67,6 +69,30 @@
 
 ---
 ## 알고리즘에서 알면 좋은 기술들 
+<details markdown="1">
+<summary>collecitons 모듈</summary>
+
+<br><ul>
+  <li> Counter 객체 
+    <br>아이템에 대한 갯수를 계산해 Dictionary로 리턴한다.<br>
+    a = [1,2,2,3,3,3,4,4,5]<br>
+    b = collecitons.Counter(a)<br>
+    print(b)<br>
+    Counter({2: 2, 3: 3, 5: 1, 4: 2, 1: 1}) <br>
+      
+  <li> OrderedDict 객체<br>
+    dictionary는 다른 언어에서 Hash Table에 해당되는데 3.6 이하 버젼에서는 
+    <br>Python에서도 마찬가지로 입력 순서가 유지되지 않았다.
+    <br>이를 위한 OrderedDict 객체를 이용하면 순서가 유지된 OrderedDict 객체를 반환한다.
+    <br>collection.OrderedDict(dict) <br>
+  
+  <li> deque 객체 <br>
+    python에서 스택이나 큐는 보통 list로 다 처리된다. 그러나 list.pop(0)의 시간복잡도는 O(n)으로 (뒤에 꺼를 앞으로 맞춰야함) 
+    <br> pop(0)를 써야할 상황이면 차라리 deque로 활용하자 
+    <br>queue = collecitons.deque()
+    <br> 데크의 경우 list의 pop(0)함수를 deque.popleft()로 지원하며 연결리스트와 마찬가지로 시간복잡도는 O(1)이다.
+</details>
+
 ---
 ## 클린 파이썬
 ---
