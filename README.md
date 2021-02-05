@@ -95,7 +95,7 @@
 
 
 <details markdown="1">
-<summary>투포인터</summary>
+<summary>투포인터(+런너방식)</summary>
 
 <br>
 투포인터는 완전탐색에서 주로 쓰이는 기술로 주로 정렬되어있는 리스트에서 강력한 방법이다. <br><br>
