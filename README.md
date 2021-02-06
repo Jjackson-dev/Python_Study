@@ -21,6 +21,31 @@
 ---
 ## 파이썬언어에 대해 깊게 알기
 <details markdown="1">
+<summary>함수의 기본인자로 mutable을 주게되면 어떤일이 벌어질까</summary>
+
+<br>
+<pre>
+이건 진짜 헷갈렸던 부분인데 python 함수가 어떻게 초기화되는지를 알아야한다. 
+먼저 왜 이러면 안되냐면 
+def foo(bar = []) : 
+    bar.append("baz")
+    return(bar) 
+이렇게 선언한 뒤 foo()를 세번 반복하면 기본값인 []로 초기화가 안되기때문에 ["baz","baz","baz"]가 되버린다. 
+함수도 파이썬에서는 일급객체이기 때문에 기본값이 mutable로 들어오게 되면 메모리 주소로 저장되기 때문에 
+파이썬 함수의 디폴트 매개변수는 호출 시점을 따르지 않는다.
+해결방법은
+1. 함수의 기본인자로 다른 함수의 결과나 mutable 자료형을 설정하지 않는 것이다. 
+2. 함수 호출마다 지금 서버의 시간을 입력해야할 필요가 있을 수 있는데 그럴때는 이렇게 사용한다. 
+       def foo(bar=None):
+           if not bar:
+               bar = 함수() 혹은 mutable
+           동작
+       이러면 None이 mutable이 아니므로 id를 참조하지 않아 bar를 정상적으로 사용할 수 있다.
+       PEP 505 -- None-aware operators에 따르면 if not bar : bar = []를 간단하게 bar??=[]로 줄일 수 있다. 
+</pre>
+</details>
+
+<details markdown="1">
 <summary>Python의 정렬알고리즘 : Sort()</summary>
 
 <ul>
