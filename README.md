@@ -14,6 +14,9 @@
 <summary></summary>
 
 <br>
+<pre>
+
+</pre>
 
 </details>
 -->
@@ -151,6 +154,20 @@ def foo(bar = []) :
 
 </details>
 
+<details markdown="1">
+<summary>함수를 다루는 함수 functools</summary>
+
+<br>
+<pre>
+functools.reduce() 함수는 두 인수의 함수를 누적적용하는 메쏘드이다. 
+[1,2,3,4,5]의 리스트를 다 더하는 함수는 for문으로 쉽게 계산할 수 있지만 pythonic하게 풀어보려면
+functools 모듈을 쓸 수 있다. import functools (Leetcode는 이미 되어있음) 후
+functools.reduce(labmda x,y : x + y, [1,2,3,4,5])   
+앞서 두인수를 누적적용한다 했으므로 [1,2,3,4,5]에 더하기 함수를 중복 적용하는 셈이다.
+from operator import add 를 사용하면 굳이 람다로 구현하지 않고 
+functools.reduce(add, [1,2,3,4,5])로 사용할 수 있다.
+</pre>
+</details>
 ---
 ## 클린 파이썬
 ---
