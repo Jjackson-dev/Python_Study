@@ -168,7 +168,7 @@ from operator import add 를 사용하면 굳이 람다로 구현하지 않고
 functools.reduce(add, [1,2,3,4,5])로 사용할 수 있다.
 </pre>
 </details>
----
+
 
 ## 클린파이썬
 ---
