@@ -80,11 +80,19 @@ def foo(bar = []) :
 
 <details markdown="1">
 <summary>Python의 imutable과 mutable </summary>
-
+</details>
+<details markdown="1">
+<summary>다른 언어와 다른 Python의 Hash-table : dictionary</summary>
+<br>
+<pre>
+dictionary가 HashTable의 자료형인건 잘 알고있지만 load factor나 충돌회피 방식은 알지못했다.
+JAVA에서 load factor는 0.75이며 Separate chaining방식을 사용한다. 대부분의 언어들이 이러한 방식을 사용하는데 
+ruby와 python같은 경우 충돌회피 방식이 특별한데 separate chaining이 아닌 Open Addressing을 사용하며 
+load factor는 0.66으로 JAVA에 비해 조금 더 여유공간을 두는 방식을 체택했다. (Open Addressing 특성상 많이 찰수록 급격히 성능저하) 
+굳이 Open Addressing을 사용한 이유는 Separate Chaining에서 malloc을 통한 동적 할당이 비효율적이라 체택했다고 한다. 
+</pre>
 
 </details>
-
-
 <details markdown="1">
 <summary>Python의 int는 왜 모든 수를 다룰 수 있을까?</summary>
 
