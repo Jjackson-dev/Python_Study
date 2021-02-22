@@ -24,6 +24,25 @@
 ---
 ## 파이썬언어에 대해 깊게 알기
 <details markdown="1">
+<summary>파이썬은 왜 느릴까? (Feat.GIL)</summary>
+
+<br>
+<pre>
+파이썬의 속도가 C/C++보다 느린건 여러 이유가 있지만 GIL(Global Interpreter Lock)도 한몫을 담당하고있다.
+OS에서 배운 Multi-Thread는 말그대로 다수의 Thread가 동시에 실행되는 것을 뜻한다. 병렬처리를 통해 속도가 증가하는데 
+Multi-Thread 과정 중 데이터의 유실등의 사고가 발생하지 않는 것은 Thread-safe라고 한다. Python은 이 Thread-safe를 
+사실상 포기한 언어이다. Python이 처음 개발된 과거에는 굳이 병렬처리가 필요하지 않았고 지금 Python3에 와서는 기존의 CPyhton
+코드들을 thread-safe한 코드로 바꾸려고하면 성능에 문제가 생기기 때문에 수정하지 못하고 있다.
+Cpython은 결국 Thread-safe를 지원하지 않는다는 것이며 Multi-Thread시 문제가 발생될 수 있다. 따라서 Python에서 
+Multi-Thread를 금지하고 Single-Thread로만 동작하도록 일종의 Locking을 해두었는데 이게 GIL(Global Interpreter Lock)이다. 
+
+즉 Python에서 Multi-Thread를 구현하려고 하면 내부적으론 하나의 Thread만 객체에 접근/처리할 수 있는 것이다. 
+이 때문에 C/C++에 비해 많은 성능저하가 발생한다고 한다.
+</pre>
+</details>
+
+
+<details markdown="1">
 <summary>함수의 기본인자로 mutable을 주게되면 어떤일이 벌어질까</summary>
 
 <br>
@@ -117,6 +136,20 @@ def foo(bar = []) :
 
 ---
 ## 알고리즘에서 알면 좋은 기술들 
+<details markdown="1">
+<summary>우선순위큐를 구현할 때 왜 Priority Queue가 아닌 heapq를 이용해 구현하는지</summary>
+<br>
+<pre>
+Priority Queue의 내부코드는 heapq로 구현되어있다. 둘의 차이는 Thread-safe기능 지원여부인데 
+Python은 기본적으로 GIL이므로 Multi-Thread를 사용하지 않는다. 따라서, Thread-safe의 locking은 
+locking overhead 초래할 수 있으며 실제 현업에서도 heapq를 활용한다. 
+
+Thread-safe, GIL등에 관한 내용은 파이썬언어에 대해 깊게 알기->파이썬은 왜 느릴까? 항목참조 
+</pre>
+
+</details>
+
+
 <details markdown="1">
 <summary>collecitons 모듈</summary>
 
